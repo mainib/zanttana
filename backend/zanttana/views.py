@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 from rest_framework import generics
 
-from .models import Zantta, Profile, Lodging, Logistics
-from .serializers import ZanttaSerializer, ProfileSerializer, LodgingSerializer, LogisticsSerializer
+from .models import Zantta, Profile, Lodging, Logistic, Msg
+from .serializers import ZanttaSerializer, ProfileSerializer, LodgingSerializer, LogisticsSerializer, MsgSerializer
 
 
 # profile serializers
@@ -38,9 +38,18 @@ class DetailLodging(generics.RetrieveUpdateDestroyAPIView):
 
 # Logistics serializers
 class ListLogistics(generics.ListCreateAPIView):
-    queryset = Logistics.objects.all()
+    queryset = Logistic.objects.all()
     serializer_class = LogisticsSerializer
 
 class DetailLogistics(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Logistics.objects.all()
+    queryset = Logistic.objects.all()
     serializer_class = LogisticsSerializer 
+
+# Msg serializers
+class ListMsg(generics.ListCreateAPIView):
+    queryset = Msg.objects.all()
+    serializer_class = MsgSerializer
+
+class DetailMsg(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Msg.objects.all()
+    serializer_class = MsgSerializer 

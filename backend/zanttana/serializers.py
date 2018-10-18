@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Profile, Zantta, Lodging, Logistics
+from .models import Profile, Zantta, Lodging, Logistic, Msg
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -52,4 +52,16 @@ class LogisticsSerializer(serializers.ModelSerializer):
             'arrive_time',
             'members_booked'
         )
-        model = Logistics
+        model = Logistic
+
+
+class MsgSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = (
+            'id',
+            'sender',
+            'msg',
+            'Zantta',
+            'created_at',
+        )
+        model = Msg
